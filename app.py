@@ -8,7 +8,7 @@ load_dotenv()
 
 def create_app():
     app = Flask(__name__)
-    client = pymongo.MongoClient("mongodb+srv://drcalebgordon:Heath.2017@microblog.dnytkbt.mongodb.net/", tlsCAFile=certifi.where())
+    client = pymongo.MongoClient(os.getenv("MONGODB_URI"))
     app.db = client.microblog
 
     # Get the current date and time
